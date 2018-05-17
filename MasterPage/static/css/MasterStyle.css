@@ -1,0 +1,32 @@
+.TitleStyleClass
+{
+text-align: center;
+color: red;
+font-size: 26px;
+}
+
+.ClassTestHeader{
+    color:red;
+    text-align: center;
+}
+
+.ClassMainHeader{
+    color:blue;
+    text-align: center;
+}
+
+.customClassLogin{
+   width: 350px;
+    background-color: rgb(239, 239, 239);
+    padding: 40px;
+    margin: auto !important;
+    border-radius: 5px;
+    margin-top: 10% !important;
+    box-sizing: border-box;
+
+    }
+
+   .CustomLoginBtn{
+       padding-top: 10px;
+    text-align: center;
+   }

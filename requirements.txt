@@ -1,0 +1,10 @@
+dj-database-url==0.4.1
+Django==2.0
+gunicorn==19.6.0
+psycopg2==2.7.4
+whitenoise==3.2.2
+djangorestframework==3.8.2
+reportlab==3.4.0
+arabic-reshaper==2.0.14
+python-bidi==0.4.0
+xhtml2pdf==0.2.2

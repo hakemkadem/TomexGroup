@@ -1,0 +1,26 @@
+{%extends "MasterPage/MasterIndex.html" %}
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+
+     <!--{% load static %}-->
+  <!--<link rel="stylesheet" href="{% static 'css/style.css' %}">-->
+     <!--<script src="{% static 'scripts/jquery.js' %}" ></script>-->
+     <!--<script src="{% static 'scripts/angular.min.js' %}" ></script>-->
+    <!--<script src="{% static 'scripts/demo.js' %}" ></script>-->
+<!--</head>-->
+<!--<body ng-app="myApp" ng-controller="MyController">-->
+{%block content%}
+{%load static%}
+<link rel="stylesheet" href="{% static 'css/Style.css' %}">
+<div class="ClassTestHeader">I am Test Page inside snippet app, I am child of Master Page</div>
+{%endblock%}
+<!--<div>[[myName]]</div>-->
+
+<!--Hi from Snippet page  <a  href="{%url 'MainTest' %}">Back to Home</a><br>-->
+<!--Hi from Snippet page  <a  href="{%url 'masters:Master' %}">Back to MasterPage</a>-->
+<!--</body>-->
+<!--</html>-->

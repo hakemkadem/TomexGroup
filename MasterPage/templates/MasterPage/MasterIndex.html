@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+     <link rel="stylesheet" href="{% static 'css/MasterStyle.css' %}">
+         <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+         <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+     <script src="{% static 'scripts/jquery.js' %}" ></script>
+     <script src="{% static 'scripts/angular.min.js' %}" ></script>
+     <script src="{% static 'scripts/demo.js' %}" ></script>
+</head>
+<body style=" direction:rtl;    background: rgb(245, 245, 245);" ng-app="myApp" ng-controller="MyController">
+<div style="
+    box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
+    height: 60px;
+    padding: 10px 40px;
+    padding-bottom: 40px;
+    background: white;
+    line-height: 40px;
+    color: #286090;
+    position: fixed;
+    top: 0;
+    width: 100%;
+        z-index: 1000;
+    overflow: hidden;">
+    <img class="img-responsive" src="{%static 'media/TomexLogo.png'%}" style="    width:10%;"/>
+
+    <div style=" position: absolute;
+    left: 30px;
+    top: 3px;
+    float: right;
+    padding: 0;
+    margin: 0 0 0 20px;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: right;">
+        {% if user.is_authenticated %}
+  Hi {{ request.session.Operator.Name }}/{{request.session.Operator.id}}- {{user.username}}!
+        <a href="{% url 'logout' %}">logout</a>
+{% else %}
+  <p style="    display: inline;">You are not logged in</p>
+  <a href="{% url 'login' %}?next={% url 'masters:Home'%}">login</a>
+{% endif %}
+    </div>
+</div>
+<div style="padding: 3%;  ">
+<div class="TitleStyleClass" style="display:none">I AM MASTER PAGE AND MY CHILDREN ARE</div><div class="ActiveUserCss" style="display:none">
+            {% if request.user in request.online_now %}
+                Active users: [[MyData.Data]]
+            {% endif %}
+    </div>
+{% if user.is_authenticated %}
+<!--<span class="glyphicon glyphicon-thumbs-up"></span>-->
+<table class="table table-bordered" style="display:none">
+    <tr>
+        <td>الروابط</td>
+            </tr>
+    <tr> <td><a href="{%url 'masters:Home'  %}">Home Page</a></td></tr>
+<tr>
+
+     <td><a  href="{%url 'snippets:MainPage' %}">Go To Main Page of snippet</a><br></td>
+        <!--<td><a  href="{%url 'MainTest' %}">Go To Main Page of snippet</a><br></td>-->
+    </tr>
+    <tr>
+        <td><a  href="{%url 'snippets:Testifying' %}">Go to Test Page of snippet</a></td>
+    </tr>
+</table>
+
+
+
+{% endif %}
+{% block content %}
+{% endblock %}
+
+</div>
+</body>
+
+</html>

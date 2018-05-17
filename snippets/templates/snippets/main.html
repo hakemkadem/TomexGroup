@@ -1,0 +1,9 @@
+{% extends "MasterPage/MasterIndex.html" %}
+
+{% block content %}
+ {% load static %}
+<link rel="stylesheet" href="{% static 'css/Style.css' %}">
+<div class="ClassMainHeader"> I am Main page inside snippet app, I am child of Master Page</div>
+<!--<a href="{%url 'masters:Master' %}">Go to Master Page</a><br>-->
+<!--Hi from Home page  <a  href="{%url 'masters:Master' %}">Back to Snipptes</a>-->
+{% endblock %}
