@@ -24,7 +24,7 @@ $scope.myName = "Hakim Adil Will Win in Django";
 
 
 var GetActiveUsers=function()
-{$http.get('https://shielded-mountain-28381.herokuapp.com/snippets/currentUsers',{})
+{$http.get('https://shielded-plateau-99737.herokuapp.com/snippets/currentUsers',{})
                          .success(function (data) {
                           $scope.MyData= data;
                           $('.ActiveUserCss').css('display','block');
@@ -45,7 +45,7 @@ $scope.GetData=function(){
 //console.log($location.$$host)
  //$http.get('http://'+$location.$$host+':'+$location.$$port+'/Catalog/validate_username/',
  //$http.get('https://radiant-depths-18402.herokuapp.com/snippets/post',
- $http.get('https://shielded-mountain-28381.herokuapp.com/snippets/post',
+ $http.get('https://shielded-plateau-99737.herokuapp.com/snippets/post',
                        {
                        }).success(function (data) {
 //                          $scope.DatedVault= data;
@@ -61,7 +61,7 @@ $scope.GetGroups=function(){
 //console.log($location.$$host)
  //$http.get('http://'+$location.$$host+':'+$location.$$port+'/Catalog/validate_username/',
  //$http.get('https://radiant-depths-18402.herokuapp.com/snippets/post',
- $http.get('https://shielded-mountain-28381.herokuapp.com/groups/GroupsAPI',
+ $http.get('https://shielded-plateau-99737.herokuapp.com/groups/GroupsAPI',
                        {
                        }).success(function (data) {
                           $scope.Groups= data;
@@ -83,7 +83,7 @@ $scope.GetGroups=function(){
 $scope.GetGroups();
 
                        $scope.TestGetFun=function(){
-                               $http.get('https://shielded-mountain-28381.herokuapp.com/snippets/testget',
+                               $http.get('https://shielded-plateau-99737.herokuapp.com/snippets/testget',
                                {params: {name: "hakim"}}
                                ).success(function (data) {
                                $scope.TestData= data;
@@ -102,7 +102,7 @@ $scope.GetGroups();
                             $http({
                             method: 'POST',
 //                            url: $location.$$protocol+'://'+$location.$$host+'/Catalog/'+'validate_username/',
-                           url:'https://shielded-mountain-28381.herokuapp.com/snippets/testpost',
+                           url:'https://shielded-plateau-99737.herokuapp.com/snippets/testpost',
                             data: $.param({ deal: JSON.stringify(Obj) }),
                             headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' }
                         }).success(function (data, status, headers, config) {
