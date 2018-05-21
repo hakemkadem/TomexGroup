@@ -13,6 +13,96 @@
     list-style-type: none;
     width:100%;
     }
+
+.form-row{
+    overflow: hidden;
+    padding: 10px;
+    font-size: 13px;
+    border-bottom: 1px solid #eee;
+}
+
+label{
+       display: block;
+    padding: 4px 10px 0 0;
+    float: right;
+    width: 130px;
+    word-wrap: break-word;
+    line-height: 1;
+}
+
+
+ .vTextField {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px 6px;
+    margin-top: 0;
+}
+
+.closeSpn:hover{
+background-color:rgb(237, 237, 237);
+color:black;
+border:1px solid gray;
+
+}
+.UrlClass{    font-size: 11px;
+margin-right: 128px;
+    color: #999;}
+
+    .grid-Gcontainer {
+        display: grid;
+    background-color: white;
+    padding: 5px;
+    grid-template-columns: 80px auto auto auto 90px 64px 56px;
+    margin: auto;
+    width: 100%;
+    line-height: calc(15px + 4px);
+    position: relative;
+    padding: 5px 24px;
+    align-items: flex-start;
+    box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
+    border-bottom: 1px solid #80808052;
+}
+
+ .grid-Gcontainer >div{
+        text-align: center;
+        padding-top: 19px;
+            width: 100%;
+ }
+
+ .BoldSpn{
+ padding:15px;
+ font-weight:bold;
+ font-size:18px;}
+
+ .SoftSpn{
+ font-size: 14px;
+ color: #808080ad;
+ }
+
+ @media only screen and (max-width: 800px){
+ .grid-Gcontainer {
+ display:block;
+    text-align: center;
+    padding-top: 19px;
+    width: 100%;
+
+}
+
+.grid-Gcontainer>div{
+border-bottom: 1px solid #80808040;
+}
+}
+
+.OrginClickSpn:hover{
+    cursor: pointer;
+    display: inherit;
+    background: #80808045;
+    border-radius: 75px;
+    padding-left: 11px;
+    padding-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 9px;
+}
 </style>
 <link rel="stylesheet" href="{% static 'css/Style.css' %}">
 
@@ -23,96 +113,225 @@
 <!--<a href="{%url 'masters:Master' %}">Go to Master Page</a><br>-->
 <!--Hi from Home page  <a  href="{%url 'masters:Master' %}">Back to Snipptes</a>-->
 
-
 <div style="display: flex;
     flex-direction: column;
     max-width: 1024px;
     min-width: 584px;
-    z-index: 0;background:white;
+    z-index: 0;
     margin: auto;" >
+    {%  if user.is_staff %}
+        <div class="BtnAddGroup" style="background-color: whitesmoke;"> <input type="button" data-toggle="modal" data-target="#myModal" class=" btn btn-primary" value="اضافة كروب" style="    float: left;
+    margin-bottom: 5px;
+    padding: 2px;
+    font-size: 20px;
+    width: 10em;"> </div>
 
 
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" style="    float: left;">&times;</button>
+        <h4 class="modal-title" >معلومات الكروب السياحي </h4>
+      </div>
+      <div class="modal-body" style="    max-height: 550px;
+    overflow-y: scroll;">
+
+          <div class="form-row">
+              <div>
+                  <label> اسم الكروب</label> <input type="text" class="vTextField" placeholder="مثلا: كولالمبور"  >
+
+              </div>
+          </div>
+          <div class="form-row">
+              <div>
+                  <label> اسم المطار</label> <input type="text" class="vTextField" placeholder="مثلا: بغداد الدولي"   >
+
+              </div>
+          </div>
+          <div class="form-row">
+              <div>
+                  <label> تاريخ الرحلة </label> <input type="text" class="vTextField" placeholder="مثلا: 12/05/2018"  >
+
+              </div>
+          </div>
+          <div class="form-row">
+              <div>
+                  <label>  عدد المقاعد</label> <input type="number" class="vTextField"  style="    width: 5em;" placeholder="مثلا: 9" >
+
+              </div>
+          </div>
+          <div class="form-row">
+              <div>
+                  <label> تسعير البالغ</label> <input type="number" class="vTextField" style="width: 8em;" placeholder=" IN: USD" >
+
+              </div>
+          </div>
+          <div class="form-row">
+              <div>
+                  <label> تسعير الطفل  </label> <input type="number" class="vTextField" style="width: 8em;" placeholder=" IN: USD"  >
+
+              </div>
+          </div>
+          <div class="form-row">
+              <div>
+                  <label> تسعير الرضيع </label> <input type="number" class="vTextField" style="width: 8em;" placeholder=" IN: USD"  >
+
+              </div>
+          </div>
+          <div class="form-row">
+              <div>
+                  <label> فرق السنكل </label> <input type="number" class="vTextField"  style="width: 8em;" placeholder=" IN: USD" >
+
+              </div>
+          </div>
+          <div class="form-row">
+              <div>
+                  <label>عدد الايام </label> <input type="number" class="vTextField"  style="    width: 5em;" placeholder=" مثلا: 8" >
+
+              </div>
+          </div>
+          <div class="form-row">
+              <div>
+                  <label> الطيران والتوقيت </label> <input type="text" class="vTextField" placeholder="مثلا: القطرية 0930"  >
+
+              </div>
+          </div>
+          <div class="form-row">
+              <div>
+                  <label> اسم الفندق</label> <input type="text" class="vTextField" placeholder="مثلا: الاسعد"   >
+
+              </div>
+          </div>
+          <div class="form-row">
+              <div>
+                  <label> الموقع الالكتورني للفندق  </label> <input type="text" class="vTextField" placeholder="مثلا: www.booking.com"  ><br/>
+                  <span class="UrlClass">ملاحظة: يمكنك نسخ ولصق العنوان الالكتروني للفندق.</span>
+
+              </div>
+          </div>
+
+          <div ng-repeat="c in Postprog" style="border: 1px  solid rgba(128, 128, 128, 0.17); border-radius: 5px;  margin-top: 15px;   ">
+              <span class="glyphicon glyphicon-remove closeSpn" ng-click="PostprogRemove(c)"
+                    style=" float: left;
+                            padding: 5px;
+                            color: black;
+                            border: 1px solid #d0cccc;
+                            margin-left: 7px;
+                            border-radius: 4px;
+                            margin-top: 5px;
+                            cursor: pointer;"></span>
+              <div class="form-row">
+                  <div>
+                      <label>  عنوان البرنامج  </label> <input type="text" class="vTextField"  placeholder="مثلا: اليوم الاول" ><br>
+                        <span class="UrlClass">ملاحظة: عنوان البرنامج مثلا: اليوم الاول او اليوم الثاني.</span>
+
+                  </div>
+              </div>
+              <div class="form-row"   >
+                  <div>
+                      <label>   تفاصيل البرنامج  </label> <textarea placeholder="مثلا: اليوم الاول الذهاب الى الفندق, الاستراحة ومن ثم ..." style=" width: 390px; height: 80px;" class="vTextField" ></textarea>
+
+                  </div>
+              </div>
+          </div>
+ <div class="form-row" >
+              <div>
+                  <button class="btn btn-danger" ng-click="CreateProgram();">
+                 <span class="glyphicon glyphicon-plus "> </span> <span style="font-size:14px">اضافة برنامج الكروب السياحي</span>
+             </button>
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    {% endif %}
 <!--<div class="ClassMainHeader"> قسم الكربات السياحية</div>-->
-<div class="container"  ng-repeat='c in Groups' style="
+<div class="container"  ng-repeat='c in Groups.res' style="
     max-width: 1024px;
     min-width: 584px;
-    border-bottom: 1px solid transparent;border-radius: 2px;
-    "  >
+    border-bottom: 1px solid transparent;border-radius: 2px;"  >
 
-    <div class="row"  style=" display: flex;
-    line-height: calc(15px + 4px);     position: relative;
-    padding: 16px 24px; box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);">
-        <div class="col-lg-3 col-sm-3"> <img style="     float:right; width: 20%;" src="https://www.gstatic.com/flights/airline_logos/70px/FZ.png">
+     <div class="row">
 
-            <div style="   float:right;  flex: 0 0 35%; text-align:center">
-                 <span style="padding:15px; font-weight:bold; font-size:16px;"> [[c.fields.countryName]] <span  > ([[c.fields.Days]] يوم) </span></span><br/>
-                 <span style="font-size: 11px; color: #808080ad; position: relative; ">فندق [[c.fields.HotelName]]  </span>
+            <div  class="col-lg-12"
+             style="background-color: whitesmoke;
+                    height: auto;
+                    display: flex;
+                    line-height: calc(15px + 4px);
+                    position: relative;
+                    padding: 12px 1px; ">
+                  مدينة [[c.countryName]] ([[c.Gcount]]) كروب سياحي
+            </div>
+     </div>
+     <div ng-repeat='d in c.GroupDetails'>
+        <div class="grid-Gcontainer" >
+                    <div style="    padding: 0px;">
+                        <img src="{% static 'media/RDLOGO.png' %}" style="width: 113px;">
+                    </div>
+                    <div>
+                        <span class="BoldSpn" >  [[d.countryName]] <span  > ([[d.Days]] يوم) </span></span><br/>
+                        <span class="SoftSpn" >فندق [[d.HotelName]]  </span>
+                    </div>
+                    <div>
 
+                        <span class="BoldSpn"> [[d.FlightName]] </span><br/>
+                         <span class="SoftSpn"> [[d.FlightDate]]   </span>
+                    </div>
+                    <div>
+
+
+                         <span class="BoldSpn"> مطار [[d.AirPort]]  </span><br/>
+                         <span class="SoftSpn"> [[d.NoOfSeats]] مقعد  </span>
+                    </div>
+                    <div>
+                         <span class="BoldSpn"> تسديد البالغ </span><br/>
+                         <span class="SoftSpn"> [[d.ADTPrice*1]] USD </span><br/>
+                    </div>
+                    <div>
+                          {% if user.is_staff %}
+                            <span  ng-show="!d.showEdit" >
+                                <span  id="EditClass"  ng-click="d.showEdit=1;" class="glyphicon glyphicon-edit OrginClickSpn"  >    </span>
+                            </span>
+
+                             <span ng-show="d.showEdit" >
+                                <span  id="SaveClass"  ng-click="d.showEdit=0;" class="glyphicon glyphicon-save OrginClickSpn" >   </span>
+                            </span>
+
+                            {% endif %}
+                    </div>
+                    <div>
+                                <span   ng-show="!d.showDetails">
+                                <span id="DownClass" ng-click="d.showDetails=1;" class="glyphicon glyphicon-chevron-down OrginClickSpn "
+                                      style="cursor:pointer; display:inherit ">  </span>
+                            </span>
+
+                            <span ng-show="d.showDetails">
+                                <span ng-show="d.showDetails" id="UppClass"  ng-click="d.showDetails=0;" class="glyphicon glyphicon-chevron-up OrginClickSpn" style="cursor:pointer; display:inherit">    </span>
+                            </span>
+                    </div>
             </div>
 
-        </div>
-        <div class="col-lg-3 col-sm-3">
-          <div style="       float: right;
-                            flex: 0 0 91%;
-                            text-align: center;">
-                 <span style="padding:15px; font-weight:bold; font-size:16px;"> [[c.fields.FlightName]] </span><br/>
-                 <span style="font-size: 13px; color: #808080ad; position: relative; ">مطار [[c.fields.AirPort]]  </span><br/>
-              <span style="font-size: 11px; color: #808080ad; position: relative; "> [[c.fields.FlightDate]]  </span>
 
-
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-3">
-          <div style="       float: right;
-                            flex: 0 0 91%;
-                            text-align: center;">
-                 <span style="padding:15px; font-weight:bold; font-size:16px;">مطار [[c.fields.AirPort]] </span><br/>
-                 <span style="font-size: 13px; color: #808080ad; position: relative; "> [[c.fields.NoOfSeats]] مقعد  </span>
-
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-3">
-          <div style="       float: right;
-                            flex: 0 0 91%;
-                            text-align: center;">
-                               <span style="padding:15px; font-weight:bold; font-size:16px;"> تسديد البالغ </span><br/>
-                                 <span style="padding:15px; font-weight:bold; font-size:16px;"> [[c.fields.ADTPrice*1]] USD </span><br/>
-
-            </div>
-
-
-        </div>
-
-
-        {% if user.is_staff %}
-        <span  ng-show="!c.fields.showEdit" class="label label-warning" style=" font-size: 14px;   height: 38px;    padding: 0px;    margin-left: 18px;">
-            <span  id="EditClass"  ng-click="c.fields.showEdit=1;" class="glyphicon glyphicon-edit OrginClickSpn" style="cursor:pointer; display:inherit">  تحرير   </span>
-        </span>
-
-         <span ng-show="c.fields.showEdit" class="label label-danger" style=" font-size: 14px;   height: 38px;    padding: 0px;    margin-left: 18px;">
-            <span  id="SaveClass"  ng-click="c.fields.showEdit=0;" class="glyphicon glyphicon-save OrginClickSpn" style="cursor:pointer; display:inherit">  حفظ   </span>
-        </span>
-
-        {% endif %}
-
-        <span   ng-show="!c.fields.showDetails" class="label label-primary" style=" font-size: 14px;   height: 38px;    padding: 0px;     color: black;
-    border: 1.2px solid rgb(12, 116, 137);
-    background-color: #337ab700;">
-            <span id="DownClass" ng-click="c.fields.showDetails=1;" class="glyphicon glyphicon-chevron-down OrginClickSpn" style="cursor:pointer; display:inherit ">  تفاصيل</span>
-        </span>
-
-        <span ng-show="c.fields.showDetails" class="label label-danger" style=" font-size: 14px;   height: 38px;    padding: 0px;    color: red;
-    border: 1.2px solid #ff0202;
-    background-color: #ffffff24;">
-            <span ng-show=" c.fields.showDetails" id="UppClass"  ng-click="c.fields.showDetails=0;" class="glyphicon glyphicon-chevron-up OrginClickSpn" style="cursor:pointer; display:inherit">  اخفـــاء   </span>
-        </span>
-
-    </div>
-    <div class="row">
-
-    <div ng-show="c.fields.showDetails==1" class="col-lg-12" style=" height:auto; display: flex;
-    line-height: calc(15px + 4px); border-top: 2px solid #80808073;     position: relative;
-    padding: 16px 24px; box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);">
+    <div ng-show="d.showDetails"  style="
+    height:auto;
+    display: flex;
+    background-color:white;
+    line-height: calc(15px + 4px);
+    border-top: 1px solid #dadada;
+    position: relative;
+    padding: 16px 24px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
+    margin-bottom: 5px !important;
+    margin-top: -1px;">
 
         <ul class="ULDetailsClass">
             <li style="padding-bottom: 25px;">
@@ -134,10 +353,10 @@
 
                                 <tbody>
                                  <tr style="color: black; font-size:16px">
-                                <td style="text-align:center">[[c.fields.countryName]] ([[c.fields.Days]] يوم - [[c.fields.NoOfSeats]] مقاعد ) </td>
-                                <td style="text-align:center">[[c.fields.AirPort]]</td>
-                                <td style="text-align:center">[[c.fields.FlightDate]]</td>
-                                <td style="text-align:center">[[c.fields.FlightName]]</td>
+                                <td style="text-align:center">[[d.countryName]] ([[d.Days]] يوم - [[d.NoOfSeats]] مقاعد ) </td>
+                                <td style="text-align:center">[[d.AirPort]]</td>
+                                <td style="text-align:center">[[d.FlightDate]]</td>
+                                <td style="text-align:center">[[d.FlightName]]</td>
                             </tr>
                                 </tbody>
                             </table>
@@ -164,10 +383,10 @@
 
                                 <tbody>
                                  <tr style="color: black; font-size:16px">
-                                <td style="text-align:center"> [[c.fields.ADTPrice*1]] USD </td>
-                                <td style="text-align:center"> [[c.fields.CHDPrice*1]] USD</td>
-                                <td style="text-align:center"> [[c.fields.InfPrice*1]] USD</td>
-                                <td style="text-align:center"> [[c.fields.SingleDiff*1]] USD</td>
+                                <td style="text-align:center"> [[d.ADTPrice*1]] USD </td>
+                                <td style="text-align:center"> [[d.CHDPrice*1]] USD</td>
+                                <td style="text-align:center"> [[d.InfPrice*1]] USD</td>
+                                <td style="text-align:center"> [[d.SingleDiff*1]] USD</td>
                             </tr>
                                 </tbody>
                             </table>
@@ -177,8 +396,34 @@
             </li>
 
             <li style="padding-bottom: 30px;">
+                 <div  style="color: #67635e; font-size:15px   "><h3> <i class="fa fa-hotel"> </i> معلومات الفندق </h3></div>
 
-               <iframe id="Example2"
+                 <div  ng-init="address='تفاصيل'">
+
+                                            <table width="100%" class="table">
+                                                <thead>
+                                                <tr style="color: #999; font-size:18px">
+                                                <th style="text-align:center">  <i class="fa fa-user"></i>   اسم الفندق </th>
+                                                <th style="text-align:center">  <i class="fa fa-child"></i>  عنوان الفندق  </th>
+                                                <th style="text-align:center">  <i class="fa fa-child"></i>   تقييم الفندق   </th>
+                                                <th style="text-align:center">  <i class="fa fa-bed"></i> تفاصيل اكثر </th>
+                                            </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                 <tr style="color: black; font-size:16px">
+                                                <td style="text-align:center"> [[d.HotelName]] </td>
+                                                <td style="text-align:center">  سوريا - قرب الحرم الزينبي</td>
+                                                <td style="text-align:center"> 5 نجوم</td>
+                                                <td style="text-align:center"><button class="btn btn-danger btn-lg" style="    width: 100px; font-size: 17px; padding: 0px;" ng-click="d.showHotel?d.showHotel=0:d.showHotel=1; address=d.showHotel?'اخفاء' :'تفاصيل' ">[[address]]</button></td>
+                                            </tr>
+                                                </tbody>
+                                            </table>
+
+                                    </div>
+
+                <div ng-show="d.showHotel">
+                    <iframe id="Example2"
     title="Example2"
     width="109.4%"
     height="800px"
@@ -187,93 +432,62 @@
     marginheight="0"
     marginwidth="0"
     style="margin-right: -7%;"
-    ng-src='[[c.fields.HotelUrl]]' >
+    ng-src='[[d.HotelUrl]]' >
 </iframe>
+                </div>
+            </li>
+            <li>
 
+<div>
+
+    <div ng-repeat="m in d.program">
+        <div style="    padding: 10px;
+    line-height: 30px;
+    max-width: 96%;
+    background-color: #dff6e1;
+    border-radius: 4px;
+    border: 1px solid #65eb65;margin-bottom: 10px;">
+            <span style="font-size:25px" > <i class="fa fa-calendar" style="color:#45c445f7"></i> [[ m.titleProgtxt]] </span>
+            <p style="color: #0c880cf7; text-align:justify" >[[m.prog]]</p>
+        </div>
+
+
+
+    </div>
+
+</div>
             </li>
 
-
-
         </ul>
-    </div></div>
-    <div class="row">
+    </div>
 
-    <div ng-show="c.fields.showEdit==1" class="col-lg-12" style=" height:auto; display: flex;
+        <div class="row">
+    <div ng-show="d.showEdit" class="col-lg-12" style=" height:auto; display: flex;
     line-height: calc(15px + 4px); border-top: 2px solid #80808073;     position: relative;
     padding: 16px 24px; box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);">
 
         <ul>
-            <li>[[c.fields.countryName]]</li>
-            <li> [[c.fields.AirPort]]</li>
-            <li> [[c.fields.FlightDate]]</li>
-            <li> [[c.fields.NoOfSeats]]</li>
-            <li> [[c.fields.HotelName]]</li>
-            <li> $[[c.fields.ADTPrice*1]]</li>
-            <li> $[[c.fields.CHDPrice*1]]</li>
-            <li> $[[c.fields.InfPrice*1]]</li>
-            <li> [[c.fields.Days]]</li>
-            <li> $[[c.fields.SingleDiff*1]]</li>
-            <li> [[c.fields.FlightName]]</li>
+            <li>[[d.countryName]]</li>
+            <li> [[d.AirPort]]</li>
+            <li> [[d.FlightDate]]</li>
+            <li> [[d.NoOfSeats]]</li>
+            <li> [[d.HotelName]]</li>
+            <li> $[[d.ADTPrice*1]]</li>
+            <li> $[[d.CHDPrice*1]]</li>
+            <li> $[[d.InfPrice*1]]</li>
+            <li> [[d.Days]]</li>
+            <li> $[[d.SingleDiff*1]]</li>
+            <li> [[d.FlightName]]</li>
         </ul>
-    </div></div>
+    </div>
+     </div>
+    </div>
+
+
+
 </div>
 
-    <!--<div ng-repeat='c in Groups' style="    border-bottom: 1px solid transparent;border-radius: 2px;-->
-    <!--box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);   ">-->
 
-        <!--<div style=" display: flex;-->
-    <!--line-height: calc(15px + 4px);-->
-    <!--padding: 16px 24px;">-->
-        <!--<span>hakim</span></div>-->
-    <!--</div>-->
-
-    <!--<table class="table table-hover GroupTable">-->
-        <!--<tr>-->
-            <!--<td>الدولة</td>-->
-            <!--<td>المطار</td>-->
-            <!--<td>تاريخ الرحلة</td>-->
-            <!--<td>المقاعد المتوفرة</td>-->
-            <!--<td>اسم الفندق</td>-->
-            <!--<td>سعر التسديد</td>-->
-            <!--<td>تسديد الطفل</td>-->
-            <!--<td>تسديد الرضيع</td>-->
-
-            <!--<td>عدد الايام</td>-->
-            <!--<td>فرق السنكل</td>-->
-            <!--<td>الطيران</td>-->
-        <!--</tr>-->
-
-        <!--<tr ng-repeat='c in Groups'>-->
-             <!--<td>[[c.fields.countryName]]</td>-->
-            <!--<td> [[c.fields.AirPort]]</td>-->
-            <!--<td> [[c.fields.FlightDate]]</td>-->
-            <!--<td> [[c.fields.NoOfSeats]]</td>-->
-            <!--<td> [[c.fields.HotelName]]</td>-->
-            <!--<td> $[[c.fields.ADTPrice*1]]</td>-->
-            <!--<td> $[[c.fields.CHDPrice*1]]</td>-->
-            <!--<td> $[[c.fields.InfPrice*1]]</td>-->
-            <!--<td> [[c.fields.Days]]</td>-->
-            <!--<td> $[[c.fields.SingleDiff*1]]</td>-->
-            <!--<td> [[c.fields.FlightName]]</td>-->
-
-        <!--</tr>-->
-    <!--</table>-->
-
-
-    <!--<ul ng-repeat='c in Groups'>-->
-        <!--<li>[[c.fields.countryName]]</li>-->
-            <!--<li> [[c.fields.AirPort]]</li>-->
-            <!--<li> [[c.fields.FlightDate]]</li>-->
-            <!--<li> [[c.fields.NoOfSeats]]</li>-->
-            <!--<li> [[c.fields.HotelName]]</li>-->
-            <!--<li> $[[c.fields.ADTPrice*1]]</li>-->
-            <!--<li> $[[c.fields.CHDPrice*1]]</li>-->
-            <!--<li> $[[c.fields.InfPrice*1]]</li>-->
-            <!--<li> [[c.fields.Days]]</li>-->
-            <!--<li> $[[c.fields.SingleDiff*1]]</li>-->
-            <!--<li> [[c.fields.FlightName]]</li>-->
-
-    <!--</ul>-->
 
 </div>
 
@@ -287,8 +501,13 @@
     }
 
     .OrginClickSpn{
-                              height: 32px;
-                              padding: 10px;
+
+     cursor: pointer;
+    display: inherit;
+    padding-left: 11px;
+    padding-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 9px;
 
     }
 </style>

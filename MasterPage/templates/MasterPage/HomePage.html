@@ -1,9 +1,97 @@
-{% extends "MasterPage/MasterIndex.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-{% block content %}
+
+<style>
+
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 8px !important;
+    }
+}
+
+ .grid-MainHeader{ position: fixed;
+    width: 100%;
+    display: grid;
+    left: 0px;
+    top: 0;
+  background-color:gray ;
+  padding:15px;
+  grid-template-columns: auto auto auto auto;
+  margin:0px;
+  }
+.grid-container {
+ display: grid;
+    background-color: white;
+    padding: 5px;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    margin: auto;
+    width: 60%;
+    line-height: calc(15px + 4px);
+    position: relative;
+    padding: 16px 24px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
+}
+
+body{ background-color: rgb(245, 245, 245) !important;}
+.grid-container > div {
+background-color:white;
+
+}
+</style>
  {% load static %}
 
-<div style="text-align:center; font-size:30px"> I am Home Page</div>
+<body style="direction:rtl">
+
+
+
+<div class="grid-container" >
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+</div>
+<!--<div class="grid-container">-->
+
+ <!--<div class="grid-container">-->
+    <!--<div>a</div>-->
+    <!--<div>b</div>-->
+    <!--<div>c</div>-->
+    <!--<div>d</div>-->
+ <!--</div>-->
+
+ <!--<div class="grid-container">-->
+    <!--<div>a</div>-->
+    <!--<div>b</div>-->
+    <!--<div>c</div>-->
+    <!--<div>d</div>-->
+ <!--</div>-->
+
+ <!--<div class="grid-container">-->
+    <!--<div>a</div>-->
+    <!--<div>b</div>-->
+    <!--<div>c</div>-->
+    <!--<div>d</div>-->
+ <!--</div>-->
+
+
+
+ <!--<div class="grid-container">-->
+    <!--<div>a</div>-->
+    <!--<div>b</div>-->
+    <!--<div>c</div>-->
+    <!--<div>d</div>-->
+ <!--</div>-->
+
+<!--</div>-->
+
 
 <br>
 
@@ -11,4 +99,6 @@
 
 <!--<a href="{%url 'masters:Master' %}">Go to Master Page</a><br>-->
 <!--Hi from Home page  <a  href="{%url 'masters:Master' %}">Back to Snipptes</a>-->
-{% endblock %}
+
+</body>
+</html>

@@ -13,3 +13,8 @@ class Group(models.Model):
     Days       = models.IntegerField(null=False)
     FlightName = models.CharField(max_length=150,null=False)
     HotelUrl   = models.CharField( max_length=1000, null=True)
+
+class GroupProgram(models.Model):
+    groupID=models.IntegerField(null=False)
+    titleProgtxt=models.CharField(max_length=50,null=False, default="اليوم الاول")
+    ProgramText=models.CharField(max_length=1500, null=False)

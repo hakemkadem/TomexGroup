@@ -15,8 +15,15 @@ $scope.myName = "Hakim Adil Will Win in Django";
         $('#Class').removeClass('ClickSpn').addClass('OrginClickSpn');
         };
 
+   $scope.Postprog=[];
+   $scope.CreateProgram=function(){
+        $scope.Postprog.push({"titleProgtxt":"","ProgramText":""})
+   };
 
-
+   $scope.PostprogRemove = function (prog) {
+        var index = $scope.Postprog.indexOf(prog);
+        $scope.Postprog.splice(index, 1);
+    }
 
 
 
@@ -61,17 +68,19 @@ $scope.GetGroups=function(){
 //console.log($location.$$host)
  //$http.get('http://'+$location.$$host+':'+$location.$$port+'/Catalog/validate_username/',
  //$http.get('https://radiant-depths-18402.herokuapp.com/snippets/post',
- $http.get('https://shielded-plateau-99737.herokuapp.com/groups/GroupsAPI',
+ $http.get('https://shielded-plateau-99737.herokuapp.com/groups/GroupBy',
                        {
                        }).success(function (data) {
                           $scope.Groups= data;
-//                          console.log($scope.DatedVault)
+                          console.log($scope.Groups)
                             //console.log('https://'+$location.$$host+':'+$location.$$port+'/snippets/post')
 
-                      for(var i=0;i<$scope.Groups.length;i++)
+                      for(var i=0;i<$scope.Groups.res.length;i++)
                       {
-                              $scope.Groups[i].fields.HotelUrl=$sce.trustAsResourceUrl( $scope.Groups[i].fields.HotelUrl);
-
+                            for(var j=0; j<$scope.Groups.res[i].GroupDetails.length;j++)
+                            {
+                             $scope.Groups.res[i].GroupDetails[j].HotelUrl=$sce.trustAsResourceUrl( $scope.Groups.res[i].GroupDetails[j].HotelUrl);
+                             }
                       }
 
                        }).error(function (error, status) {

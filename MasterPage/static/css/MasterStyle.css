@@ -1,8 +1,81 @@
+/********************* The Master Page Css **********************/
+        @media (max-width:1300px){
+        #MyLogo{ width:20% !important}
+        }
+
+.ActiveUserClass{
+    display:none;
+    margin-top: 38px;
+    margin-right: 202px;
+    }
+
+.grid-MainHeader
+ {
+     position: fixed;
+     width: 100%;
+     display: grid;
+     left: 0px;
+     top: 0;
+     background: white ;
+     padding:15px;
+     grid-template-columns: auto auto auto auto;
+     margin:0px;
+     box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
+     z-index: 1000;
+     overflow: hidden;
+  }
+
+.grid-container {
+          display:grid;
+          background-color:gray ;
+          padding:5px;
+          grid-template-columns: auto auto auto auto ;
+          margin:0px;
+}
+
+.grid-container > div {
+          background-color:white;
+          border:1px solid gray;
+}
+
+body {
+       direction:rtl;
+       background: rgb(245, 245, 245) !important;
+       }
+
+#MyLogo
+ {
+  width:20%;
+ }
+
+
+.AuthClass{
+    float: left;
+    padding: 0;
+    margin: 0 0 0 20px;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: left;
+
+
+    }
+
+.AuthClass p{ display: inline;}
+.LinkTable{
+display:none;
+}
+
+#Container{padding: 3%;}
+
+
 .TitleStyleClass
 {
 text-align: center;
 color: red;
 font-size: 26px;
+display:none;
 }
 
 .ClassTestHeader{
@@ -30,3 +103,8 @@ font-size: 26px;
        padding-top: 10px;
     text-align: center;
    }
+
+   /********************* The end of Master Page Css **********************/
+
+
+

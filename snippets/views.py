@@ -35,7 +35,7 @@ def user_login(request):
 
           if user is not None:
 
-              Query = Operator.objects.filter(CompID=int(user.pk)) & Operator.objects.filter(OperatorName=MyOperator);
+              Query = Operator.objects.filter(CompID=int(user.id)) & Operator.objects.filter(OperatorName=MyOperator);
               if  Query.count():
                   Oper={"id":Query.first().pk,"Name":Query.first().OperatorName}
               # if user.is_active:
